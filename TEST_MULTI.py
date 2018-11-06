@@ -196,7 +196,6 @@ def train_model(
   plt.plot(training_rmse, label="training")
   plt.plot(validation_rmse, label="validation")
   plt.legend()
-  plt.show()
 
   return linear_regressor
 
@@ -214,16 +213,16 @@ grade = grade.reindex(
 grade["math_SAT"] /= 100.0
 grade["verb_SAT"] /= 100.0
 
-training_examples = preprocess_features(grade.head(70))
+training_examples = preprocess_features(grade.head(75))
 print(training_examples.describe())
 
-training_targets = preprocess_targets(grade.head(70))
+training_targets = preprocess_targets(grade.head(75))
 training_targets.describe()
 
-validation_examples = preprocess_features(grade[70:90])
+validation_examples = preprocess_features(grade[75:90])
 print(validation_examples.describe())
 
-validation_targets = preprocess_targets(grade[70:90])
+validation_targets = preprocess_targets(grade[75:90])
 validation_targets.describe()
 
 linear_regressor = train_model(
@@ -259,3 +258,4 @@ print("Max. "+target_str+" Value: %0.3f" % max_house_value)
 print("Difference between Min. and Max.: %0.3f" % min_max_difference)
 print("Root Mean Squared Error: %0.3f" % root_mean_squared_error)
 
+plt.show()
