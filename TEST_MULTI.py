@@ -14,8 +14,8 @@ from tensorflow.python.data import Dataset
 
 num_periods = 10
 
-num_learning_rate = 0.02
-num_steps=5
+num_learning_rate = 0.0001
+num_steps=1000
 num_batch_size=1
 
 target_str = "univ_GPA"
@@ -32,9 +32,10 @@ def preprocess_features(grade):
   """
   selected_features = grade[
     ["high_GPA",
-     #"math_SAT",
-     #"verb_SAT",
-     "comp_GPA"]]
+     "math_SAT",
+     "verb_SAT",
+     "comp_GPA"
+     ]]
   
   #selected_features = grade[
   #  [feature_str]]
